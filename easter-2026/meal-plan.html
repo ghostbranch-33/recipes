@@ -1,32 +1,776 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Meal Plan for Easter 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easter Dinner 2026 — Meal Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm-white: #fefaf4;
+    --gold: #c8922a;
+    --gold-light: #e8b84b;
+    --sage: #6b8c6e;
+    --sage-light: #a8c5ab;
+    --dusty-rose: #c97d7d;
+    --brown: #5a3e28;
+    --ink: #2c2011;
+    --border: #e2cfa8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(200,146,42,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(107,140,110,0.1) 0%, transparent 60%);
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .egg-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--brown);
+    line-height: 1.1;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0.3rem;
+    font-weight: 400;
+  }
+
+  .subtitle {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--sage);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* MENU STRIP */
+  .menu-strip {
+    background: var(--brown);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 1.2rem 1.8rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    align-items: center;
+  }
+
+  .menu-strip-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    width: 100%;
+    margin-bottom: 0.3rem;
+  }
+
+  .menu-item {
+    font-size: 0.9rem;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .menu-item::before {
+    content: '◆';
+    color: var(--gold-light);
+    font-size: 0.55rem;
+  }
+
+  /* SECTION HEADERS */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  .section-header .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* GROCERY LIST */
+  .grocery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .grocery-cat {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.3rem;
+  }
+
+  .grocery-cat h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grocery-cat ul {
+    list-style: none;
+  }
+
+  .grocery-cat li {
+    font-size: 0.88rem;
+    padding: 0.22rem 0;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .grocery-cat li::before {
+    content: '☐';
+    color: var(--sage);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .note {
+    font-size: 0.78rem;
+    color: var(--sage);
+    font-style: italic;
+    margin-top: 0.8rem;
+    padding: 0.6rem 0.9rem;
+    background: rgba(107,140,110,0.08);
+    border-left: 3px solid var(--sage-light);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* PREP PLAN */
+  .day-block {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+
+  .day-header {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 0.8rem 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .day-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+  }
+
+  .day-header .day-tag {
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .timeline {
+    padding: 1rem 1.4rem;
+  }
+
+  .task {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0.8rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: start;
+  }
+
+  .task:last-child {
+    border-bottom: none;
+  }
+
+  .task-time {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-top: 0.1rem;
+    line-height: 1.3;
+  }
+
+  .task-desc {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  .task-desc strong {
+    color: var(--brown);
+  }
+
+  .task-desc .sub {
+    display: block;
+    font-size: 0.8rem;
+    color: #7a6040;
+    margin-top: 0.15rem;
+    font-style: italic;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--sage-light);
+    color: var(--brown);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+
+  .tag.hot { background: #f4c7a8; color: #7a2e0e; }
+  .tag.cold { background: #bde0f5; color: #1a4a6a; }
+  .tag.bake { background: #f9e2a0; color: #6a4400; }
+
+  /* RECIPE SUMMARY */
+  .recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .recipe-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    border-top: 3px solid var(--gold);
+  }
+
+  .recipe-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .recipe-card .meta {
+    font-size: 0.78rem;
+    color: var(--sage);
+  }
+
+  .recipe-card .meta span {
+    display: block;
+    padding: 0.15rem 0;
+  }
+
+  .kielbasi-note {
+    background: linear-gradient(135deg, #fef3e2, #fdf6ec);
+    border: 1px solid #e8c97a;
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .kielbasi-note h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .kielbasi-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.6rem;
+  }
+
+  .kielbasi-opt {
+    font-size: 0.83rem;
+    color: var(--ink);
+    padding: 0.6rem 0.8rem;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.6);
+  }
+
+  .kielbasi-opt strong {
+    display: block;
+    color: var(--brown);
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.78rem;
+    color: #b89a6a;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    .kielbasi-options { grid-template-columns: 1fr; }
+    .grocery-grid { grid-template-columns: 1fr; }
+    .recipe-cards { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
-    <h1>Recipe Cards</h1>
-    <div class="recipe-card">
-        <a href="greek-bean-salad.md">Greek Bean Salad</a>
+<div class="page">
+
+  <header>
+    <div class="egg-row">🌷 🥚 🐣 🌿 🥚 🌷</div>
+    <h1>Easter Dinner 2026<em>for 10 Guests</em></h1>
+    <p class="subtitle">Sunday, April &nbsp;·&nbsp; 1:00 PM &nbsp;·&nbsp; Frederick, MD</p>
+  </header>
+
+  <!-- MENU -->
+  <div class="menu-strip">
+    <div class="menu-strip-label">The Menu</div>
+    <div class="menu-item">Kirkland Spiral Ham</div>
+    <div class="menu-item">Grilled or Smoked Kielbasi</div>
+    <div class="menu-item">Deviled Eggs</div>
+    <div class="menu-item">Pickled Beets</div>
+    <div class="menu-item">Potatoes Au Gratin</div>
+    <div class="menu-item">Greek Bean Salad</div>
+    <div class="menu-item">Mom's Potato Salad</div>
+    <div class="menu-item">Mom's Best Macaroni Salad</div>
+    <div class="menu-item">Herb Batter Bread</div>
+  </div>
+
+  <!-- GROCERY LIST -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Grocery List</h2>
+      <div class="line"></div>
     </div>
-    <div class="recipe-card">
-        <a href="moms-potato-salad.md">Mom's Potato Salad</a>
+    <p class="note" style="margin-bottom:1rem;">Ham &amp; kielbasi excluded (you have them). Standard pantry staples excluded (flour, sugar, salt, pepper, mayo, mustard, vinegar, oil, milk). Check your spice rack for oregano, parsley, rosemary, thyme, and paprika.</p>
+    <div class="grocery-grid">
+
+      <div class="grocery-cat">
+        <h3>🥬 Produce</h3>
+        <ul>
+          <li>2–3 small cucumbers</li>
+          <li>2 pints cherry tomatoes</li>
+          <li>2 green bell peppers</li>
+          <li>1 red bell pepper</li>
+          <li>3 red onions (2 large, 1 medium)</li>
+          <li>1 small yellow onion</li>
+          <li>1 bunch celery</li>
+          <li>4 carrots</li>
+          <li>12 medium red skin potatoes</li>
+          <li>3–4 lemons (juice + zest)</li>
+          <li>Fresh beets (1 bunch) <em>or</em> 2 cans sliced beets</li>
+        </ul>
+      </div>
+
+      <div class="grocery-cat">
+        <h3>🥚 Eggs &amp; Dairy</h3>
+        <ul>
+          <li>21 large eggs (9 potato salad + 12 deviled eggs) — buy 2 dozen</li>
+          <li>10–12 oz feta cheese (crumbled, in brine)</li>
+          <li>Miracle Whip (if not on hand, ~1 cup needed)</li>
+        </ul>
+      </div>
+
+      <div class="grocery-cat">
+        <h3>🥫 Canned &amp; Dry Goods</h3>
+        <ul>
+          <li>3 cans (15 oz) butter beans or cannellini beans</li>
+          <li>1 cup pitted olives (kalamata or mixed)</li>
+          <li>1 can (14 oz) sweetened condensed milk</li>
+          <li>16 oz elbow macaroni</li>
+          <li>1 packet active dry yeast (¼ oz)</li>
+          <li>1 jar dill relish (or dill pickles)</li>
+          <li>Dijon mustard (if not pantry)</li>
+          <li>Honey or maple syrup (small bottle)</li>
+        </ul>
+      </div>
+
+      <div class="grocery-cat">
+        <h3>🧂 Spices &amp; Baking</h3>
+        <ul>
+          <li>Dried oregano</li>
+          <li>Dried parsley</li>
+          <li>Dried rosemary</li>
+          <li>Dried thyme</li>
+          <li>Paprika (for garnish)</li>
+          <li>Shortening (small can, for bread)</li>
+          <li>Margarine or butter</li>
+        </ul>
+      </div>
+
     </div>
-    <div class="recipe-card">
-        <a href="moms-best-macaroni-salad.md">Mom's Best Macaroni Salad</a>
+  </div>
+
+  <!-- ALL DISHES SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <h2>All Recipes at a Glance</h2>
+      <div class="line"></div>
     </div>
-    <div class="recipe-card">
-        <a href="herb-batter-bread.md">Herb Batter Bread</a>
-    </div>
-    <div class="recipe-card">
-        <a href="kirkland-spiral-ham.md">Kirkland Spiral Ham</a>
+    <div class="recipe-cards">
+      <div class="recipe-card">
+        <h4>Spiral Ham</h4>
+        <div class="meta">
+          <span>🕐 ~2 hrs at 275°F (covered)</span>
+          <span>🌡️ Internal temp 140°F</span>
+          <span>🍯 Glaze at 425°F, 8–10 min</span>
+          <span>👥 Serves 12–16</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Kielbasi</h4>
+        <div class="meta">
+          <span>🔥 Grill: ~15–20 min total</span>
+          <span>💨 Smoke: 1–2 hrs at 225°F</span>
+          <span>✅ Already fully cooked</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Deviled Eggs</h4>
+        <div class="meta">
+          <span>🥚 12 eggs → 24 halves</span>
+          <span>📅 Filling: Saturday</span>
+          <span>🍽️ Assemble Sunday AM</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Beets</h4>
+        <div class="meta">
+          <span>🫙 Canned: open &amp; serve cold</span>
+          <span>🌿 Fresh: roast 45 min at 400°F, peel, slice, Saturday</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Greek Bean Salad</h4>
+        <div class="meta">
+          <span>🕐 Prep: 15 min</span>
+          <span>📅 Make Saturday</span>
+          <span>👥 Scale 6→10 (×1.67)</span>
+          <span>🥙 Beans, cukes, tomato, feta</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4> Mom's Potato Salad</h4>
+        <div class="meta">
+          <span>🕐 Boil potatoes + eggs</span>
+          <span>📅 Make Saturday</span>
+          <span>👥 Serves ~10–12</span>
+          <span>🥔 Red potatoes, eggs, Miracle Whip</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Mom's Best Macaroni Salad</h4>
+        <div class="meta">
+          <span>🕐 Chill 8+ hours</span>
+          <span>📅 Make Saturday AM</span>
+          <span>👥 Serves 16 (plenty!)</span>
+          <span>🍝 Mayo, condensed milk, veggies</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Herb Batter Bread</h4>
+        <div class="meta">
+          <span>🕐 Prep 20 min + 2 hr rise</span>
+          <span>🕐 Bake 35–45 min at 375°F</span>
+          <span>📅 Make Saturday</span>
+          <span>🍞 Rosemary, thyme, parsley</span>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <h4>Potatoes Au Gratin</h4>
+        <div class="meta">
+          <span>📦 Premade — follow pkg instructions</span>
+          <span>🕐 Typically 45–60 min in oven</span>
+          <span>🧀 Can share oven w/ ham</span>
+        </div>
+      </div>
     </div>
 
-    <h2>Menu Strip</h2>
-    <ul>
-        <li><a href="greek-bean-salad.md">Greek Bean Salad</a></li>
-        <li><a href="moms-potato-salad.md">Mom's Potato Salad</a></li>
-        <li><a href="moms-best-macaroni-salad.md">Mom's Best Macaroni Salad</a></li>
-        <li><a href="herb-batter-bread.md">Herb Batter Bread</a></li>
-        <li><a href="kirkland-spiral-ham.md">Kirkland Spiral Ham</a></li>
-    </ul>
+    <div class="kielbasi-note">
+      <h4>🌭 Kielbasi: Grill or Smoke?</h4>
+      <div class="kielbasi-options">
+        <div class="kielbasi-opt">
+          <strong>🔥 Grilling (easier Sunday)</strong>
+          Medium-high heat. Score lightly if desired. Grill 6–8 min per side until charred and heated through. Start at 12:15 PM for a 1:00 serving.
+        </div>
+        <div class="kielbasi-opt">
+          <strong>💨 Smoking (more flavor)</strong>
+          225°F, apple or cherry wood, ~1.5–2 hrs. Start smoker by 10:30 AM Sunday morning. Target internal temp 165°F.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SATURDAY PREP -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Saturday Prep Plan</h2>
+      <div class="line"></div>
+    </div>
+    <div class="day-block">
+      <div class="day-header">
+        <h3>Saturday — April 19</h3>
+        <span class="day-tag">Day Before Easter</span>
+      </div>
+      <div class="timeline">
+
+        <div class="task">
+          <div class="task-time">8:00 AM</div>
+          <div class="task-desc">
+            <strong>Start Macaroni Salad</strong> <span class="tag bake">priority</span>
+            <span class="sub">Cook 16 oz elbow macaroni, rinse under cold water, set aside to cool. Needs 8+ hrs to chill — make this first.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">8:30 AM</div>
+          <div class="task-desc">
+            <strong>Hard boil all eggs</strong>
+            <span class="sub">Boil 21 eggs total (9 for potato salad + 12 for deviled eggs). Cool completely in ice bath, then peel and refrigerate in airtight container.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">9:00 AM</div>
+          <div class="task-desc">
+            <strong>Assemble &amp; chill Macaroni Salad</strong>
+            <span class="sub">Mix mayo, condensed milk, vinegar, sugar, salt &amp; pepper in large bowl. Add shredded carrots, red onion, peppers, celery. Add cooled macaroni, toss gently. Cover and refrigerate — the longer the better.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">10:00 AM</div>
+          <div class="task-desc">
+            <strong>Boil red skin potatoes for potato salad</strong>
+            <span class="sub">12 medium potatoes, cook until tender. Drain, cool, peel, and refrigerate.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">11:00 AM</div>
+          <div class="task-desc">
+            <strong>Make Greek Bean Salad</strong> <span class="tag cold">make-ahead</span>
+            <span class="sub">Whisk dressing (olive oil, lemon, Dijon, honey, oregano). Drain and rinse beans, dice cucumber, halve cherry tomatoes, thinly slice red onion, halve olives. Toss all with dressing. Top with feta before refrigerating. Flavors improve overnight.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">12:00 PM</div>
+          <div class="task-desc">
+            <strong>Assemble  Mom's Potato Salad</strong> <span class="tag cold">make-ahead</span>
+            <span class="sub">Slice potatoes and celery. Chop onion super fine. Mix Miracle Whip, mustard, milk. Chop 9 hard-boiled eggs. Combine gently. Season with salt &amp; pepper. Dust with paprika. Refrigerate.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">1:30 PM</div>
+          <div class="task-desc">
+            <strong>Make Herb Batter Bread</strong> <span class="tag bake">bake</span>
+            <span class="sub">Combine flour, salt, sugar, yeast, warm water, shortening, herbs (parsley, rosemary, thyme). Mix until smooth. Let rise ~30 min in warm place. Bake at 375°F, 35–45 min until hollow when tapped. Cool on wire rack.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">3:00 PM</div>
+          <div class="task-desc">
+            <strong>Prep beets</strong>
+            <span class="sub">Fresh: Roast beets at 400°F, wrapped in foil, ~45 min. Cool, peel, and slice. Refrigerate. Canned: Open and refrigerate as-is — serve cold with a splash of the brine.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">4:00 PM</div>
+          <div class="task-desc">
+            <strong>Prep deviled egg filling</strong>
+            <span class="sub">Mash 12 egg yolks with mayo, mustard, a splash of pickle brine, salt &amp; pepper until smooth. Store filling in a zip bag in the fridge. Store whites covered. Assemble Sunday morning.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">Evening</div>
+          <div class="task-desc">
+            <strong>Set the table, lay out serving dishes, prep garnishes</strong>
+            <span class="sub">Label serving bowls, get out platters for ham and kielbasi. Slice lemons for the water pitcher. You're done for today!</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNDAY PLAN -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Sunday — Game Day</h2>
+      <div class="line"></div>
+    </div>
+    <div class="day-block">
+      <div class="day-header">
+        <h3>Sunday — April 20</h3>
+        <span class="day-tag">Dinner at 1:00 PM</span>
+      </div>
+      <div class="timeline">
+
+        <div class="task">
+          <div class="task-time">8:00 AM</div>
+          <div class="task-desc">
+            <strong>Ham out of fridge</strong>
+            <span class="sub">Let ham sit at room temp 30–60 min before oven. Remove all packaging including clear plastic button on bone.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">8:30 AM</div>
+          <div class="task-desc">
+            <strong>If Smoking Kielbasi — Start Smoker Now</strong> <span class="tag hot">smoker only</span>
+            <span class="sub">Target 225°F. Apple or cherry wood. Kielbasi will need 1.5–2 hrs. Smoke until internal temp 165°F.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">9:00 AM</div>
+          <div class="task-desc">
+            <strong>Ham into oven</strong> <span class="tag hot">oven</span>
+            <span class="sub">Preheat to 275°F. Place ham flat/face side DOWN in shallow roasting pan. Cover tightly with foil. Bake 12–15 min per pound. For a ~10 lb ham: ~2 hours. Check temp at 90 min — target 140°F internal.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">10:30 AM</div>
+          <div class="task-desc">
+            <strong>Assemble deviled eggs</strong>
+            <span class="sub">Pipe or spoon filling into whites. Dust with paprika. Arrange on platter and refrigerate until serving.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">11:00 AM</div>
+          <div class="task-desc">
+            <strong>Check ham temperature</strong>
+            <span class="sub">If at 140°F and glazing: remove from oven, increase temp to 425°F. Brush glaze over ham and between slices. Return uncovered for 8–10 min. Rest covered for 10 min before carving.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">11:30 AM</div>
+          <div class="task-desc">
+            <strong>Potatoes Au Gratin into oven</strong> <span class="tag bake">oven</span>
+            <span class="sub">Follow package directions. Typically 45–60 min. Can go in after ham comes out at 425°F, or reduce to 375°F if sharing oven with ham.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">12:00 PM</div>
+          <div class="task-desc">
+            <strong>If Grilling Kielbasi — Fire up grill now</strong> <span class="tag hot">grill only</span>
+            <span class="sub">Medium-high heat. Score kielbasi lightly. Grill ~6–8 min per side until nicely charred and hot through.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">12:15 PM</div>
+          <div class="task-desc">
+            <strong>Pull cold salads from fridge</strong>
+            <span class="sub">Macaroni salad, Greek bean salad, potato salad, and beets. Let them take the chill off for 15–20 min. Give macaroni salad a gentle stir (it absorbs liquid overnight — add a splash of milk if needed).</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">12:30 PM</div>
+          <div class="task-desc">
+            <strong>Warm the bread</strong>
+            <span class="sub">Wrap Herb Batter Bread in foil, warm at 300°F for 10–15 min. Slice and serve warm with butter.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">12:45 PM</div>
+          <div class="task-desc">
+            <strong>Carve ham &amp; plate kielbasi</strong>
+            <span class="sub">Transfer ham to platter. Slice kielbasi on a diagonal. Set out all platters and serving bowls buffet-style. Pull deviled eggs from fridge.</span>
+          </div>
+        </div>
+
+        <div class="task">
+          <div class="task-time">🎉 1:00 PM</div>
+          <div class="task-desc">
+            <strong>Dinner is served!</strong>
+            <span class="sub">Happy Easter 🐣 Enjoy your meal with family.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>Easter 2026 &nbsp;·&nbsp; 10 guests &nbsp;·&nbsp; Made with love in Frederick, MD</footer>
+
+</div>
 </body>
 </html>
