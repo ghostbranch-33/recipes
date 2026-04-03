@@ -1,4 +1,4 @@
-# Mike's Mom's Potato Salad
+# Mom's Potato Salad
 
 **Source:** Family recipe (handwritten scan)  
 **Servings:** ~10–12
