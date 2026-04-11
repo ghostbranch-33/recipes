@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Recipes Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm-white: #fefaf4;
+    --gold: #c8922a;
+    --gold-light: #e8b84b;
+    --sage: #6b8c6e;
+    --sage-light: #a8c5ab;
+    --dusty-rose: #c97d7d;
+    --brown: #5a3e28;
+    --ink: #2c2011;
+    --border: #e2cfa8;
+    --card-bg: rgba(255,255,255,0.65);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(200,146,42,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(107,140,110,0.11) 0%, transparent 55%);
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 0.3rem;
+  }
+
+  header h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-top: 0.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    color: #a07850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+
+  /* INTRO NOTE */
+  .intro-note {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sage);
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.88rem;
+    color: #5a4a35;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  /* RECIPE CARDS GRID */
+  .recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .recipe-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(90, 62, 40, 0.12);
+    border-color: var(--gold);
+  }
+
+  .recipe-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .recipe-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--brown);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .recipe-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .recipe-card-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #5a4a35;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .recipe-card-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-badge {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    color: #a07850;
+    font-weight: 600;
+  }
+
+  .cta-text {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--sage);
+    font-weight: 700;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: #b89a6a;
+    font-style: italic;
+  }
+
+  footer a {
+    color: var(--sage);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 620px) {
+    header h1 { font-size: 2rem; }
+    .recipe-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="icon-row">🍽️ 🥕 🐾 🍗 🐰</div>
+    <h1>Family Recipes<em>Preserved with love, shared with care</em></h1>
+    <p class="subtitle">Family traditions · Holiday feasts · Homemade pet food</p>
+  </header>
+
+  <div class="intro-note">
+    Family and holiday recipes, preserved in plain text so they don't die in a Facebook group.
+  </div>
+
+  <div class="recipe-cards">
+
+    <!-- Easter 2026 Card -->
+    <a href="easter-2026/meal-plan.html" class="recipe-card">
+      <div class="recipe-card-icon">🐰</div>
+      <h2>Easter 2026</h2>
+      <div class="recipe-card-subtitle">Holiday Meal Plan</div>
+      <div class="recipe-card-description">
+        Complete Easter dinner menu with grocery list and prep timeline. Featuring spiral ham, kielbasi, deviled eggs, and Mom's classic salads.
+      </div>
+      <div class="recipe-card-meta">
+        <span class="meta-badge">10 guests</span>
+        <span class="meta-badge">April 20, 2026</span>
+        <span class="meta-badge">Frederick, MD</span>
+      </div>
+      <div class="cta-text">View Meal Plan →</div>
+    </a>
+
+    <!-- Dog Food Card -->
+    <a href="dog-food/dog-food-recipes.html" class="recipe-card">
+      <div class="recipe-card-icon">🐾</div>
+      <h2>Homemade Dog Food</h2>
+      <div class="recipe-card-subtitle">From-Scratch Pet Nutrition</div>
+      <div class="recipe-card-description">
+        All-natural, human-grade homemade dog food recipes. Turkey & brown rice, salmon variations, and complete serving guides.
+      </div>
+      <div class="recipe-card-meta">
+        <span class="meta-badge">2 recipes</span>
+        <span class="meta-badge">Freeze-friendly</span>
+        <span class="meta-badge">Batch cooking</span>
+      </div>
+      <div class="cta-text">View Recipes →</div>
+    </a>
+
+  </div>
+
+  <footer>
+    Family Recipes Collection &nbsp;·&nbsp; Made with love in Frederick, MD<br>
+    <a href="https://github.com/ghostbranch-33/recipes" target="_blank" rel="noopener">View on GitHub</a>
+  </footer>
+
+</div>
+</body>
+</html>

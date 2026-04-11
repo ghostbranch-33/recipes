@@ -2,10 +2,15 @@
 
 Family and holiday recipes, preserved in plain text so they don't die in a Facebook group.
 
+**Live Site:** [ghostbranch-33.github.io/recipes](https://ghostbranch-33.github.io/recipes)
+
 ## Structure
 
 ```
 recipes/
+├── index.html                          # Home page with navigation to all recipes
+├── dog-food/
+│   └── dog-food-recipes.html           # Homemade dog food recipes
 └── easter-2026/
     ├── meal-plan.html                  # Full grocery list + Saturday/Sunday prep plan
     ├── kirkland-spiral-ham.md
