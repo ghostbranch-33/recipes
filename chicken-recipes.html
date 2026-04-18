@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti-Inflammatory Chicken Recipes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm-white: #fefaf4;
+    --gold: #c8922a;
+    --gold-light: #e8b84b;
+    --sage: #6b8c6e;
+    --sage-light: #a8c5ab;
+    --dusty-rose: #c97d7d;
+    --brown: #5a3e28;
+    --ink: #2c2011;
+    --border: #e2cfa8;
+    --card-bg: rgba(255,255,255,0.65);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(200,146,42,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(107,140,110,0.11) 0%, transparent 55%);
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 0.3rem;
+  }
+
+  header h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-top: 0.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    color: #a07850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+
+  /* INTRO NOTE */
+  .intro-note {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sage);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.92rem;
+    color: #5a4a35;
+    line-height: 1.65;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  .section-header .line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* RECIPE CARDS */
+  .recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .recipe-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(90, 62, 40, 0.12);
+    border-color: var(--gold);
+  }
+
+  .recipe-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .recipe-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--brown);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .recipe-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .recipe-card-description {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #5a4a35;
+    margin-bottom: 1.2rem;
+  }
+
+  .recipe-card-meta {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-badge {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+    color: #a07850;
+    font-weight: 600;
+  }
+
+  .cta-text {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--sage);
+    font-weight: 700;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* BENEFITS GRID */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .benefit-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  .benefit-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #5a4a35;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.6rem 1rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--sage);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    background: var(--sage);
+    color: var(--cream);
+    border-color: var(--sage);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: #b89a6a;
+    font-style: italic;
+  }
+
+  footer a {
+    color: var(--sage);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 620px) {
+    header h1 { font-size: 2rem; }
+    .recipe-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="index.html" class="back-link">← Back to All Recipes</a>
+
+  <header>
+    <div class="icon-row">🌿 🍗 🥘 ✨</div>
+    <h1>Anti-Inflammatory Chicken<em>Meal prep recipes for the week</em></h1>
+    <p class="subtitle">Healthy · Flavorful · Anti-inflammatory</p>
+  </header>
+
+  <div class="intro-note">
+    Three delicious chicken recipes designed to reduce inflammation while keeping meals interesting all week. Each recipe features ingredients with proven anti-inflammatory properties and stores beautifully for meal prep.
+  </div>
+
+  <!-- RECIPE CARDS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>The Recipes</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="recipe-cards">
+
+      <a href="mediterranean-herb-baked-chicken.html" class="recipe-card">
+        <div class="recipe-card-icon">🫒</div>
+        <h3>Mediterranean Herb Baked Chicken</h3>
+        <div class="recipe-card-subtitle">Classic & Versatile</div>
+        <div class="recipe-card-description">
+          Olive oil, garlic, and fresh herbs make this deeply anti-inflammatory. Stays juicy, slices cleanly, and tastes great cold in a salad or warm over grains.
+        </div>
+        <div class="recipe-card-meta">
+          <span class="meta-badge">20-25 min cook</span>
+          <span class="meta-badge">2 hr marinate</span>
+          <span class="meta-badge">4 servings</span>
+        </div>
+        <div class="cta-text">View Recipe →</div>
+      </a>
+
+      <a href="turmeric-ginger-poached-chicken.html" class="recipe-card">
+        <div class="recipe-card-icon">🌟</div>
+        <h3>Turmeric Ginger Poached Chicken</h3>
+        <div class="recipe-card-subtitle">Anti-Inflammatory Powerhouse</div>
+        <div class="recipe-card-description">
+          Shreds beautifully for bowls, soups, grain salads, or lettuce wraps all week. The golden broth is a bonus for soups.
+        </div>
+        <div class="recipe-card-meta">
+          <span class="meta-badge">20 min cook</span>
+          <span class="meta-badge">Freezes well</span>
+          <span class="meta-badge">4 servings</span>
+        </div>
+        <div class="cta-text">View Recipe →</div>
+      </a>
+
+      <a href="smoky-cherry-balsamic-glazed-chicken.html" class="recipe-card">
+        <div class="recipe-card-icon">🍒</div>
+        <h3>Smoky Cherry Balsamic Glazed Chicken</h3>
+        <div class="recipe-card-subtitle">Savory-Sweet</div>
+        <div class="recipe-card-description">
+          Tart cherries are one of the highest-antioxidant foods available. This savory-sweet glaze makes dinners feel special with zero extra effort midweek.
+        </div>
+        <div class="recipe-card-meta">
+          <span class="meta-badge">25 min cook</span>
+          <span class="meta-badge">Restaurant quality</span>
+          <span class="meta-badge">4 servings</span>
+        </div>
+        <div class="cta-text">View Recipe →</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- BENEFITS SECTION -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Why Anti-Inflammatory?</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h4>Reduce Inflammation</h4>
+        <p>These recipes use ingredients like turmeric, ginger, olive oil, and tart cherries that naturally combat inflammation in the body.</p>
+      </div>
+
+      <div class="benefit-card">
+        <h4>Support Joint Health</h4>
+        <p>Anti-inflammatory compounds help reduce joint pain and stiffness, supporting mobility and comfort.</p>
+      </div>
+
+      <div class="benefit-card">
+        <h4>Boost Immunity</h4>
+        <p>Garlic, lemon, and herbs provide immune-supporting nutrients and antioxidants to keep you healthy.</p>
+      </div>
+
+      <div class="benefit-card">
+        <h4>Meal Prep Friendly</h4>
+        <p>All recipes store beautifully for 4+ days, making healthy eating convenient throughout the week.</p>
+      </div>
+
+      <div class="benefit-card">
+        <h4>Lean Protein</h4>
+        <p>Chicken breast provides high-quality protein without excess saturated fat, supporting muscle health and recovery.</p>
+      </div>
+
+      <div class="benefit-card">
+        <h4>Flavorful & Satisfying</h4>
+        <p>Healthy doesn't mean bland. These recipes are packed with flavor from herbs, spices, and quality ingredients.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Family Recipes Collection &nbsp;·&nbsp; Made with love in Frederick, MD<br>
+    <a href="https://github.com/ghostbranch-33/recipes" target="_blank" rel="noopener">View on GitHub</a>
+  </footer>
+
+</div>
+</body>
+</html>
